@@ -252,7 +252,28 @@ app.get('/traineeupd/:tid',(req,res)=>{
 
 
 
+app.get('/report',(req,res)=>{
+     const sql =`
+SELECT
+    trainees.tid,
+    trainees.fname,
+    trainees.lname,
+    marks.m_name,
+    marks.f_assessment,
+    marks.s_assessment,
+    (marks.f_assessment + marks.s_assessment) AS total
+FROM trainees
+JOIN marks ON trainees.tid = marks.tid
 
+;
+
+     `
+      db.query(sql,(err,result)=>{
+          if(err) return res.status(404).json("Failed")
+         return res.status(200).json(result)
+     })
+     
+})
 
 app.listen(3000,()=>{
      console.log("My app is running on http://localhost:3000")

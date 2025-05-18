@@ -17,6 +17,7 @@ import './App.css';
 import Report from './Report';
 import Selectrain from './Selectrain'
 import Login from './Login';
+import Register from './Register'
 // import Mselect from './Mselect';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path='/mselect' element={<Mselect />} />
                 <Route path='/report' element={<Report />} />
                 <Route path='/' element={<Login/>} />
+                <Route path='/register' element={<Register/>} />
                 <Route path='/Selectrain' element={<Selectrain/>} />
                 <Route path='/mselect' element={<Mselect />} />
                 <Route path='/mupdate/:tid' element={<Mupdate />} />

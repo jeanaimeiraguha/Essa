@@ -55,6 +55,20 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('/register', (req, res) => {
+    const sql = "INSERT INTO users (name,password)  VALUES(?,?)";
+    const { name, password } = req.body;
+
+    db.query(sql, [name, password], (err, result) => {
+        if (err) {
+
+            return res.status(500).json({ message: "Database error" });
+        }
+
+        return res.status(200).json(result);
+    });
+});
+
 app.delete('/deluser/:id',(req,res)=>{
      const sql="DELETE FROM users where id=?";
      const{id}=req.params;

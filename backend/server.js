@@ -37,6 +37,23 @@ app.post('/adduser',(req,res)=>{
          return res.status(200).json(result)
      })
 })
+app.post('/login', (req, res) => {
+    const sql = "SELECT * FROM users WHERE name = ? AND password = ?";
+    const { name, password } = req.body;
+
+    db.query(sql, [name, password], (err, result) => {
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json({ message: "Database error" });
+        }
+
+        if (result.length === 0) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+
+        return res.status(200).json(result);
+    });
+});
 
 app.delete('/deluser/:id',(req,res)=>{
      const sql="DELETE FROM users where id=?";

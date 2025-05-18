@@ -16,13 +16,14 @@ import Mupdate from './Mupdate';
 import './App.css';
 import Report from './Report';
 import Selectrain from './Selectrain'
+import Login from './Login';
 // import Mselect from './Mselect';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Nav />} />
+                <Route path='/nav' element={<Nav />} />
                 <Route path='/addusr' element={<Addusr />} />
                 <Route path='/insrttrain' element={<Insrttrain />} />
                 <Route path='/minserted' element={<Minsert />} />
@@ -30,6 +31,7 @@ const App = () => {
                 <Route path='/selecttr' element={<Selecttr />} />
                 <Route path='/mselect' element={<Mselect />} />
                 <Route path='/report' element={<Report />} />
+                <Route path='/' element={<Login/>} />
                 <Route path='/Selectrain' element={<Selectrain/>} />
                 <Route path='/mselect' element={<Mselect />} />
                 <Route path='/mupdate/:tid' element={<Mupdate />} />
